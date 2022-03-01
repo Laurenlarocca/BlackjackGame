@@ -1,0 +1,687 @@
+package game;     // Made by Camden, Lauren, Tyler
+
+import java.util.Random; //imports random 
+import java.util.Scanner; //imports scanner for user innut
+
+public class start {
+	public static void main(String[] args) throws InterruptedException { // throws inturruptedException is to allow for Thread.sleep (used to give player time to read - waits)
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("Type P or Play to Begin Blackjack\n" + "Or type R or Rules to read the rules of Blackjack");  // play scanner to decide to play or  to go to rules
+		
+		String userInputString = userInput.nextLine();
+
+boolean boolContinue = false; // boolean to determine if ready to play game 
+
+	if (userInputString.equalsIgnoreCase("p") || userInputString.equalsIgnoreCase("play")) {
+		System.out.println("The game is now starting");
+		System.out.println("----------------------------------------");
+		System.out.println(" ");
+		Thread.sleep(3000);
+		boolContinue = true;
+	} else if (userInputString.equalsIgnoreCase("r") || userInputString.equalsIgnoreCase("rules")) {   //game rules
+		System.out.println("These are the game rules: you have 30 seconds to read");
+		System.out.println("Blackjack is a game that uses a standard 52-card pack. \n"
+				+ "Face cards are worth up to 10.\n"
+				+ "The other cards are worth their shown value: 2, 3, 4 etc…\n"
+				+ "The goal is to try to draw cards in an attempt to beat the dealer by getting 21 or as close to 21, without going over. \n"
+				+ "Going over 21 is known as “busting” or “bust”.\n"
+				+ "At the start, a player is dealt 2 cards face-up while the dealer has 1 card face up and one face down.\n"
+				+ "Once the cards have been dealt, the player can choose either to hit or stand.\n"
+				+ "If the player chooses to stand, the dealer will turn-over their face down card. \n"
+				+ "If the dealer’s cards are under 17, they will draw until they either beat the player or “bust”.\n"
+				+ "If the player chooses to “hit” instead of “stand”, the dealer will deal them another card.\n"
+				+ "The player can continue to hit in an attempt to reach the desired amount or “bust”.\n"
+				+ "If a player is dealt a 10 or face card and an Ace it is known as Blackjack. \n"
+				+ "for our modifications, the dealer and player can only hold a max of 4 cards each in their hands" 
+				+ "modification #2 - All aces = 11" );
+		Thread.sleep(30000); //waits
+		boolContinue = true;
+	} else {
+		System.out.println("invalid, restart game");  // invalid with exit
+		System.exit(0);
+	}
+	
+if (boolContinue = true) {
+	 
+	{	Random cardValue1 = new Random(); // random dealer card #1
+		int cardRand1 = cardValue1.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+		
+		Random suitValue1 = new Random();
+		int suitRand1 = suitValue1.nextInt(1, 5);
+		//Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+		//1    , 2       , 3     , 4
+		
+		String cardValDealer1 = "";
+		String suitDealer1 = "";
+		
+		if (cardRand1 == 1) {  //assigns value to each number
+			cardValDealer1 = "Ace"; // 11
+			cardRand1 = 11;  // ace changes to value of 11 if picked
+		} else if (cardRand1 == 2) {
+			cardValDealer1 = "Two"; // 2
+		} else if (cardRand1 == 3) {
+			cardValDealer1 = "Three"; // 3
+		} else if (cardRand1 == 4) {
+			cardValDealer1 = "Four"; // 4
+		} else if (cardRand1 == 5) {
+			cardValDealer1 = "Five"; // 5
+		} else if (cardRand1 == 6) {
+			cardValDealer1 = "Six"; // 6
+		} else if (cardRand1 == 7) {
+			cardValDealer1 = "Seven"; // 7
+		} else if (cardRand1 == 8) {
+			cardValDealer1 = "Eight"; // 8
+		} else if (cardRand1 == 9) {
+			cardValDealer1 = "Nine"; // 9
+		} else if (cardRand1 == 10) {
+			cardValDealer1 = "Ten"; // 10
+		} else if (cardRand1 == 11) {
+			cardRand1 = 10;
+			cardValDealer1 = "Jack"; // 10
+		} else if (cardRand1 == 12) {
+			cardValDealer1 = "Queen"; // 10
+			cardRand1 = 10;
+		} else {
+			cardValDealer1 = "King";  // 10 
+			cardRand1 = 10;
+		}
+		if (suitRand1 == 1) {  //assigns suit to each number
+			suitDealer1 = "Clubs"; // 1
+		} else if (suitRand1 == 2) {
+			suitDealer1 = "Diamonds"; // 2
+		} else if (suitRand1 == 3) {
+			suitDealer1 = "Hearts"; // 3
+		} else {
+			suitDealer1 = "Spades"; // 4
+		}	
+		
+	{ 	Random cardValue2 = new Random(); // random dealer card #2
+		int cardRand2 = cardValue2.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+		
+		Random suitValue2 = new Random();
+		int suitRand2 = suitValue2.nextInt(1, 5);
+		//Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+		//1    , 2       , 3     , 4
+		
+		String cardValDealer2 = "";
+		String suitDealer2 = "";
+		
+		if (cardRand2 == 1) {  //assigns value to each number
+			cardValDealer2 = "Ace"; // 11
+			cardRand2 = 11;  // ace changes to value of 11 if picked
+		} else if (cardRand2 == 2) {
+			cardValDealer2 = "Two"; // 2
+		} else if (cardRand2 == 3) {
+			cardValDealer2 = "Three"; // 3
+		} else if (cardRand2 == 4) {
+			cardValDealer2 = "Four"; // 4
+		} else if (cardRand2 == 5) {
+			cardValDealer2 = "Five"; // 5
+		} else if (cardRand2 == 6) {
+			cardValDealer2 = "Six"; // 6
+		} else if (cardRand2 == 7) {
+			cardValDealer2 = "Seven"; // 7
+		} else if (cardRand2 == 8) {
+			cardValDealer2 = "Eight"; // 8
+		} else if (cardRand2 == 9) {
+			cardValDealer2 = "Nine"; // 9
+		} else if (cardRand2 == 10) {
+			cardValDealer2 = "Ten"; // 10
+		} else if (cardRand2 == 11) {
+			cardValDealer2 = "Jack"; // 10
+			cardRand2 = 10;
+		} else if (cardRand2 == 12) {
+			cardValDealer2 = "Queen"; // 10
+			cardRand2 = 10;
+		} else {
+			cardValDealer2 = "King";  // 10
+			cardRand2 = 10;
+		}	
+		if (suitRand2 == 1) {  //assigns suit to each number
+			suitDealer2 = "Clubs"; // 1
+		} else if (suitRand2 == 2) {
+			suitDealer2 = "Diamonds"; // 2
+		} else if (suitRand2 == 3) {
+			suitDealer2 = "Hearts"; // 3
+		} else {
+			suitDealer2 = "Spades"; // 4
+		}
+		
+	{ 	Random cardValue3 = new Random(); // random dealer card #3
+		int cardRand3 = cardValue3.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+		
+		Random suitValue3 = new Random();
+		int suitRand3 = suitValue2.nextInt(1, 5);
+		//Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+		//1    , 2       , 3     , 4
+		
+		String cardValDealer3 = "";
+		String suitDealer3 = "";	
+		
+		if (cardRand3 == 1) {  //assigns value to each number
+			cardValDealer3 = "Ace"; // 11
+			cardRand3 = 11;  // ace changes to value of 11 if picked
+		} else if (cardRand3 == 2) {
+			cardValDealer3 = "Two"; // 2
+		} else if (cardRand3 == 3) {
+			cardValDealer3 = "Three"; // 3
+		} else if (cardRand3 == 4) {
+			cardValDealer3 = "Four"; // 4
+		} else if (cardRand3 == 5) {
+			cardValDealer3 = "Five"; // 5
+		} else if (cardRand3 == 6) {
+			cardValDealer3 = "Six"; // 6
+		} else if (cardRand3 == 7) {
+			cardValDealer3 = "Seven"; // 7
+		} else if (cardRand3 == 8) {
+			cardValDealer3 = "Eight"; // 8
+		} else if (cardRand3 == 9) {
+			cardValDealer3 = "Nine"; // 9
+		} else if (cardRand3 == 10) {
+			cardValDealer3 = "Ten"; // 10
+		} else if (cardRand3 == 11) {
+			cardValDealer3 = "Jack"; // 10
+			cardRand3 = 10;
+		} else if (cardRand3 == 12) {
+			cardValDealer3 = "Queen"; // 10
+			cardRand3 = 10;
+		} else {
+			cardValDealer3 = "King";  // 10
+			cardRand3 = 10;
+		}	
+		if (suitRand3 == 1) {  //assigns suit to each number
+			suitDealer3 = "Clubs"; // 1
+		} else if (suitRand3 == 2) {
+			suitDealer3 = "Diamonds"; // 2
+		} else if (suitRand3 == 3) {
+			suitDealer3 = "Hearts"; // 3
+		} else {
+			suitDealer3 = "Spades"; // 4
+		}
+		
+	{ 	Random cardValue4 = new Random(); // random dealer card #4
+		int cardRand4 = cardValue4.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+		
+		Random suitValue4 = new Random();
+		int suitRand4 = suitValue2.nextInt(1, 5);
+		//Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+		//1    , 2       , 3     , 4
+		
+		String cardValDealer4 = "";
+		String suitDealer4 = "";
+			
+		if (cardRand4 == 1) {  //assigns value to each number
+			cardValDealer4 = "Ace"; // 11
+			cardRand4 = 11;  // ace changes to value of 11 if picked
+		} else if (cardRand4 == 2) {
+			cardValDealer4 = "Two"; // 2
+		} else if (cardRand4 == 3) {
+			cardValDealer4 = "Three"; // 3
+		} else if (cardRand4 == 4) {
+			cardValDealer4 = "Four"; // 4
+		} else if (cardRand4 == 5) {
+			cardValDealer4 = "Five"; // 5
+		} else if (cardRand4 == 6) {
+			cardValDealer4 = "Six"; // 6
+		} else if (cardRand4 == 7) {
+			cardValDealer4 = "Seven"; // 7
+		} else if (cardRand4 == 8) {
+			cardValDealer4 = "Eight"; // 8
+		} else if (cardRand4 == 9) {
+			cardValDealer4 = "Nine"; // 9
+		} else if (cardRand4 == 10) {
+			cardValDealer4 = "Ten"; // 10
+		} else if (cardRand4 == 11) {
+			cardValDealer4 = "Jack"; // 10
+			cardRand4 = 10;
+		} else if (cardRand4 == 12) {
+			cardValDealer4 = "Queen"; // 10
+			cardRand4 = 10;
+		} else {
+			cardValDealer4 = "King";  // 10
+			cardRand4 = 10;
+		}	
+		if (suitRand3 == 1) {  //assigns suit to each number
+			suitDealer4 = "Clubs"; // 1
+		} else if (suitRand4 == 2) {
+			suitDealer4 = "Diamonds"; // 2
+		} else if (suitRand4 == 3) {
+			suitDealer4 = "Hearts"; // 3
+		} else {
+			suitDealer4 = "Spades"; // 4
+		}
+		
+	{	Random cardValue5 = new Random(); // random user card #1
+        int cardRand5 = cardValue5.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+
+        Random suitValue5 = new Random();
+        int suitRand5 = suitValue5.nextInt(1, 5);
+        //Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+        //1    , 2       , 3     , 4
+
+        String cardValPlayer1 = "";
+        String suitPlayer1 = "";
+
+        if (cardRand5 == 1) {  //assigns value to each number
+            cardValPlayer1 = "Ace"; // 1
+			cardRand5 = 11;  // ace changes to value of 11 if picked
+        } else if (cardRand5 == 2) {
+            cardValPlayer1 = "Two"; // 2
+        } else if (cardRand5 == 3) {
+            cardValPlayer1 = "Three"; // 3
+        } else if (cardRand5 == 4) {
+            cardValPlayer1 = "Four"; // 4
+        } else if (cardRand5 == 5) {
+            cardValPlayer1 = "Five"; // 5
+        } else if (cardRand5 == 6) {
+            cardValPlayer1 = "Six"; // 6
+        } else if (cardRand5 == 7) {
+            cardValPlayer1 = "Seven"; // 7
+        } else if (cardRand5 == 8) {
+            cardValPlayer1 = "Eight"; // 8
+        } else if (cardRand5 == 9) {
+            cardValPlayer1 = "Nine"; // 9
+        } else if (cardRand5 == 10) {
+            cardValPlayer1 = "Ten"; // 10
+        } else if (cardRand5 == 11) {
+            cardValPlayer1 = "Jack"; // 10
+			cardRand5 = 10;
+        } else if (cardRand5 == 12) {
+            cardValPlayer1 = "Queen"; // 10
+			cardRand5 = 10;
+        } else {
+            cardValPlayer1 = "King";  // 10
+			cardRand5 = 10;
+        }
+        if (suitRand5 == 1) {  //assigns suit to each number
+            suitPlayer1 = "Clubs"; // 1
+        } else if (suitRand5 == 2) {
+            suitPlayer1 = "Diamonds"; // 2
+        } else if (suitRand5 == 3) {
+            suitPlayer1 = "Hearts"; // 3
+        } else {
+            suitPlayer1 = "Spades"; // 4
+        }       
+        
+   {    Random cardValue6 = new Random(); // random user card #2
+        int cardRand6 = cardValue6.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+        Random suitValue6 = new Random();
+        int suitRand6 = suitValue6.nextInt(1, 5);
+        //Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+        //1    , 2       , 3     , 4
+
+        String cardValPlayer2 = "";
+        String suitPlayer2 = "";
+
+        if (cardRand6 == 1) {  //assigns value to each number
+            cardValPlayer2 = "Ace"; // 1
+			cardRand6 = 11;  // ace changes to value of 11 if picked
+        } else if (cardRand6 == 2) {
+            cardValPlayer2 = "Two"; // 2
+        } else if (cardRand6 == 3) {
+            cardValPlayer2 = "Three"; // 3
+        } else if (cardRand6 == 4) {
+            cardValPlayer2 = "Four"; // 4
+        } else if (cardRand6 == 5) {
+            cardValPlayer2 = "Five"; // 5
+        } else if (cardRand6 == 6) {
+            cardValPlayer2 = "Six"; // 6
+        } else if (cardRand6 == 7) {
+            cardValPlayer2 = "Seven"; // 7
+        } else if (cardRand6 == 8) {
+            cardValPlayer2 = "Eight"; // 8
+        } else if (cardRand6 == 9) {
+            cardValPlayer2 = "Nine"; // 9
+        } else if (cardRand6 == 10) {
+            cardValPlayer2 = "Ten"; // 10
+        } else if (cardRand6 == 11) {
+            cardValPlayer2 = "Jack"; // 10
+			cardRand6 = 10;
+        } else if (cardRand6 == 12) {
+            cardValPlayer2 = "Queen"; // 10
+			cardRand6 = 10;
+        } else {
+            cardValPlayer2 = "King";  // 10
+			cardRand6 = 10;
+        }
+        if (suitRand6 == 1) {  //assigns suit to each number
+            suitPlayer2 = "Clubs"; // 1
+        } else if (suitRand6 == 2) {
+            suitPlayer2 = "Diamonds"; // 2
+        } else if (suitRand6 == 3) {
+            suitPlayer2 = "Hearts"; // 3
+        } else {
+            suitPlayer2 = "Spades"; // 4
+        }
+
+   {    Random cardValue7 = new Random(); // random user card #3
+        int cardRand7 = cardValue7.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+
+        Random suitValue7 = new Random();
+        int suitRand7 = suitValue7.nextInt(1, 5);
+        //Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+        //1    , 2       , 3     , 4
+
+        String cardValPlayer3 = "";
+        String suitPlayer3 = "";
+
+        if (cardRand7 == 1) {  //assigns value to each number
+            cardValPlayer3 = "Ace"; // 1
+			cardRand7 = 11;  // ace changes to value of 11 if picked
+        } else if (cardRand7 == 2) {
+            cardValPlayer3 = "Two"; // 2
+        } else if (cardRand7 == 3) {
+            cardValPlayer3 = "Three"; // 3
+        } else if (cardRand7 == 4) {
+            cardValPlayer3 = "Four"; // 4
+        } else if (cardRand7 == 5) {
+            cardValPlayer3 = "Five"; // 5
+        } else if (cardRand7 == 6) {
+            cardValPlayer3 = "Six"; // 6
+        } else if (cardRand7 == 7) {
+            cardValPlayer3 = "Seven"; // 7
+        } else if (cardRand7 == 8) {
+            cardValPlayer3 = "Eight"; // 8
+        } else if (cardRand7 == 9) {
+            cardValPlayer3 = "Nine"; // 9
+        } else if (cardRand7 == 10) {
+            cardValPlayer3 = "Ten"; // 10
+        } else if (cardRand7 == 11) {
+            cardValPlayer3 = "Jack"; // 10
+			cardRand7 = 10;
+        } else if (cardRand7 == 12) {
+            cardValPlayer3 = "Queen"; // 10
+			cardRand7 = 10;
+        } else {
+            cardValPlayer3 = "King";  // 10 
+			cardRand7 = 10;
+        }
+        if (suitRand7 == 1) {  //assigns suit to each number
+            suitPlayer3 = "Clubs"; // 1
+        } else if (suitRand7 == 2) {
+            suitPlayer3 = "Diamonds"; // 2
+        } else if (suitRand7 == 3) {
+            suitPlayer3 = "Hearts"; // 3
+        } else {
+            suitPlayer3 = "Spades"; // 4
+        }
+        
+   {    Random cardValue8 = new Random(); // random user card #4
+        int cardRand8 = cardValue8.nextInt(1, 14);
+		//Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack , Queen, King (nums and associated vals)
+		//1  , 2, 3, 4, 5, 6, 7, 8, 9. 10, 10   , 10   , 10
+
+        Random suitValue8 = new Random();
+        int suitRand8 = suitValue8.nextInt(1, 5);
+        //Clubs, Diamonds, Hearts, Spades (suits and associated vals)
+        //1    , 2       , 3     , 4
+
+        String cardValPlayer4 = "";
+        String suitPlayer4 = "";
+
+        if (cardRand8 == 1) {  //assigns value to each number
+            cardValPlayer4 = "Ace"; // 1
+			cardRand8 = 11;  // ace changes to value of 11 if picked
+        } else if (cardRand8 == 2) {
+            cardValPlayer4 = "Two"; // 2
+        } else if (cardRand8 == 3) {
+            cardValPlayer4 = "Three"; // 3
+        } else if (cardRand8 == 4) {
+            cardValPlayer4 = "Four"; // 4
+        } else if (cardRand8 == 5) {
+            cardValPlayer4 = "Five"; // 5
+        } else if (cardRand8 == 6) {
+            cardValPlayer4 = "Six"; // 6
+        } else if (cardRand8 == 7) {
+            cardValPlayer4 = "Seven"; // 7
+        } else if (cardRand8 == 8) {
+            cardValPlayer4 = "Eight"; // 8
+        } else if (cardRand8 == 9) {
+            cardValPlayer4 = "Nine"; // 9
+        } else if (cardRand8 == 10) {
+            cardValPlayer4 = "Ten"; // 10
+        } else if (cardRand8 == 11) {
+            cardValPlayer4 = "Jack"; // 10
+			cardRand8 = 10;
+        } else if (cardRand8 == 12) {
+            cardValPlayer4 = "Queen"; // 10
+			cardRand8 = 10;
+        } else {
+            cardValPlayer4 = "King";  // 10 
+			cardRand8 = 10;
+        }
+        if (suitRand8 == 1) {  //assigns suit to each number
+            suitPlayer4 = "Clubs"; // 1
+        } else if (suitRand8 == 2) {
+            suitPlayer4 = "Diamonds"; // 2
+        } else if (suitRand8 == 3) {
+            suitPlayer4 = "Hearts"; // 3
+        } else {
+            suitPlayer4 = "Spades"; // 4
+        } 
+        // player logic below
+		
+		int playerTwoCardTotal = cardRand5 + cardRand6;
+		int playerThreeCardTotal = cardRand5 + cardRand6 + cardRand7;
+		int playerFourCardTotal = cardRand5 + cardRand6 + cardRand7 + cardRand8;  // all combos for player		
+		
+		System.out.println("The dealer's first card is a: " + cardValDealer1 + " of " + suitDealer1);  // tells user their cards and asks what they want to do
+		System.out.println("His second card is hidden");
+		Thread.sleep(3500); //waits
+		System.out.println("----------------------------------------");
+		System.out.println(" ");
+		System.out.println("He is now dealing your cards.");
+		Thread.sleep(3500); //waits
+		System.out.println("Your first two cards are: " + cardValPlayer1 + " of " + suitPlayer1 + " and " + cardValPlayer2 + " of " + suitPlayer2);
+		System.out.println("----------------------------------------");
+		System.out.println(" ");
+		Thread.sleep(3500); //waits
+		System.out.println("Do you want to hit or stand? type below:");
+		
+		Scanner hitOrStay1 = new Scanner(System.in);    // asks user if they want to hit or stay after seeing first two cards
+		System.out.println("Type H or Hit to hit again. \nType S or Stand or Stay to stand.");
+		String hitOrStayUserInput1 = hitOrStay1.nextLine();
+	
+		int playerFinal = 0;
+		boolean ifHitAgain = false;
+		
+		if (hitOrStayUserInput1.equalsIgnoreCase("S") || hitOrStayUserInput1.equalsIgnoreCase("Stand") || hitOrStayUserInput1.equalsIgnoreCase("Stay")) {   // reads user input for hit or stay and gives back result
+			System.out.println(" ");
+			System.out.println("You have decided to stand");
+			System.out.println("----------------------------------------");
+			System.out.println(" ");
+			playerFinal = playerTwoCardTotal;
+			
+		} else if (hitOrStayUserInput1.equalsIgnoreCase("H") || hitOrStayUserInput1.equalsIgnoreCase("Hit")) {
+			System.out.println(" ");
+			System.out.println("You have decided to hit");
+			ifHitAgain = true;
+		} else {
+			Thread.sleep(3500); //waits
+			System.out.println("Restart game");   // invalid with exit
+			System.exit(0);
+		}
+		
+		if (ifHitAgain == true) {
+			System.out.println("Your first three cards are: " + cardValPlayer1 + " of " + suitPlayer1 + " and " + cardValPlayer2 + " of " + suitPlayer2 + " and " + cardValPlayer3 + " of " + suitPlayer3);
+		}
+			
+		if (playerThreeCardTotal > 21 && ifHitAgain == true) {   // logic if player ends up hitting for a 3rd card
+			Thread.sleep(3500); //waits
+			System.out.println("You have gone over 21, try again next time.");
+			System.out.println("----------------------------------------");
+			System.out.println(" ");
+			playerFinal = 0;
+		} else if (ifHitAgain == false) {
+			Thread.sleep(3500); //waits
+			System.out.println("Your total card value is worth: " + playerFinal);
+			System.out.println("----------------------------------------");
+			System.out.println(" ");
+		} else {
+			Scanner hitOrStay2 = new Scanner(System.in);
+			System.out.println("Type H or Hit to hit again. \nType S or Stand or Stay to stand.");
+			String hitOrStayUserInput2 = hitOrStay2.nextLine();
+			
+			
+			boolean ifHitAgain2 = false;
+			
+				
+			if (hitOrStayUserInput2.equalsIgnoreCase("S") || hitOrStayUserInput2.equalsIgnoreCase("Stand") || hitOrStayUserInput2.equalsIgnoreCase("Stay")) {    // reads user input for hit or stay and gives back result
+				System.out.println("You have decided to stand");
+				playerFinal = playerThreeCardTotal;
+			} else if (hitOrStayUserInput2.equalsIgnoreCase("H") || hitOrStayUserInput2.equalsIgnoreCase("Hit")) {
+				System.out.println("You have decided to hit");
+				ifHitAgain2 = true;
+			} else {
+				System.out.println("restart game");  // invalid with exit
+				System.exit(0);
+			}
+			
+			if(ifHitAgain2 == true) {
+				System.out.println("Your first four cards are: " + cardValPlayer1 + " of " + suitPlayer1 + " and " + cardValPlayer2 + " of " + suitPlayer2 + " and " + cardValPlayer3 + " of " + suitPlayer3 + " and " + cardValPlayer4 + " of " + suitPlayer4);
+				playerFinal = playerFourCardTotal;
+			}
+				
+			if (playerFourCardTotal > 21 && ifHitAgain2 == true) {    // logic if player ends up hitting for a 4th card
+				System.out.println("You have gone over 21, try again next time.");
+				playerFinal = 0;
+			} else if (ifHitAgain2 == false) {
+				System.out.println("Your total card value is worth: " + playerFinal);	
+			} else {
+				System.out.println("You must stand as the 4 Card limit is reached");
+				playerFinal = playerFourCardTotal;
+				System.out.println("Your total card value is worth: " + playerFinal);	
+			}	
+		}
+		// dealer logic below
+		
+		int dealerTwoCardTotal = cardRand1 + cardRand2;;
+		int dealerThreeCardTotal = cardRand1 + cardRand2 + cardRand3;
+		int dealerFourCardTotal = cardRand1 + cardRand2 + cardRand3 + cardRand4;  // all combos for dealer		
+		
+		int dealerFinal = 0; // dealers final count
+		boolean bust = false;
+		Thread.sleep(3500); //waits
+		System.out.println("----------------------------------------");
+		System.out.println(" ");
+		System.out.println("The dealer has revealed his second card");
+		Thread.sleep(3500);  //waits
+		System.out.println("His hand consists of a " + cardValDealer1 + " of " + suitDealer1 + " and a "  + cardValDealer2 + " of " + suitDealer2);	
+		System.out.println(" ");
+		
+		if (dealerTwoCardTotal > 16 && dealerTwoCardTotal < 22) {    // decides if dealer stays at 2 cards, or busts, if within game parameters it will go to the next section to grab a 3rd card
+			dealerFinal = dealerTwoCardTotal;
+			Thread.sleep(3500); //waits
+			System.out.println(" ");
+			System.out.println("The dealer decided to stand");
+		} else if (dealerTwoCardTotal > 21) {
+			dealerFinal = 0;
+			bust = true;
+		} else {
+			System.out.println(" ");
+		}
+			
+		if (bust == false && dealerTwoCardTotal < 17) {	
+			Thread.sleep(3500); //waits
+			System.out.println("The dealer decided to hit again");
+			Thread.sleep(3500); //waits
+			System.out.println("His hand consists of a " + cardValDealer1 + " of " + suitDealer1 + " and a "  + cardValDealer2 + " of " + suitDealer2 + " and a "  + cardValDealer3 + " of " + suitDealer3);
+			System.out.println(" ");
+		}	
+			
+		if (dealerThreeCardTotal > 16 && dealerThreeCardTotal < 22 && bust == false) {    // decides if dealer stays at 3 cards, or busts, if within game parameters it will go to the next section to grab a 4rd card
+			dealerFinal = dealerThreeCardTotal;
+			Thread.sleep(3500); //waits
+			System.out.println(" ");
+			System.out.println("The dealer decided to stand");
+		} else if (dealerThreeCardTotal < 17 && bust == false) {
+			dealerFinal = dealerFourCardTotal;
+		} else if (dealerThreeCardTotal > 21 && dealerFinal == 0) {
+			dealerFinal = 0;
+			bust = true;
+		} else {
+			System.out.println(" ");
+		}	
+			
+		if (bust == false && dealerThreeCardTotal < 17) {	
+			Thread.sleep(3500); //waits
+			System.out.println(" ");
+			System.out.println("The dealer decided to hit again");
+			Thread.sleep(3500); //waits
+			System.out.println("His hand consists of a " + cardValDealer1 + " of " + suitDealer1 + " and a "  + cardValDealer2 + " of " + suitDealer2 + " and a "  + cardValDealer3 + " of " + suitDealer3 + " and a "  + cardValDealer4 + " of " + suitDealer4);
+		}				
+			
+		if (dealerFourCardTotal > 16 && dealerFourCardTotal < 22 && bust == false) {    // decides if dealer stays at 4 cards, or busts
+			dealerFinal = dealerFourCardTotal;
+			Thread.sleep(3500); //waits
+			System.out.println(" ");
+			System.out.println("The dealer has reached his four card limit, he must stand");
+		} else if (dealerFourCardTotal < 17 && bust == false) {
+			dealerFinal = dealerFourCardTotal;
+			Thread.sleep(3500); //waits
+			System.out.println(" ");
+			System.out.println("The dealer has reached his four card limit, he must stand");
+		} else if (dealerFourCardTotal > 21 && dealerFinal == dealerFourCardTotal) { 
+			dealerFinal = 0;
+			bust = true;
+		} else {
+			System.out.println(" ");
+		}		
+		
+		if (dealerFinal == 21) {   // dealer blackjack
+			Thread.sleep(3500); //waits
+			System.out.println("The Dealer has recieved a Blackjack");
+		}
+		if (playerFinal == 21) {   // player blackjack
+			Thread.sleep(3500); //waits
+			System.out.println("The Player has recieved a Blackjack");
+		}
+		
+		System.out.println(" ");
+		while (bust == true) {   // while loop to determine if the dealer has bust
+			Thread.sleep(3500); //waits
+			System.out.println("The dealer has Bust");
+			break;  // ends while loop
+		}
+		
+		Thread.sleep(2000); //waits
+		System.out.println("----------------------------------------");
+		System.out.println(" ");
+		Thread.sleep(3000); //waits
+		
+		if (dealerFinal > playerFinal) {   // final logic to decide who wins
+			System.out.println("The dealer has won the game");
+			System.out.println("His score was: " + dealerFinal + " and your score was: " + playerFinal);
+		} else if (dealerFinal < playerFinal) {
+			System.out.println("You have won the game");
+			System.out.println("His score was: " + dealerFinal + " and your score was: " + playerFinal);
+		} else {
+			System.out.println("The game was a tie");
+			System.out.println("His score was: " + dealerFinal + " and your score was: " + playerFinal);
+		}
+   }
+   }
+   }		
+   }
+	}
+	}	
+	}
+	}
+	}
+	}
+}
+
